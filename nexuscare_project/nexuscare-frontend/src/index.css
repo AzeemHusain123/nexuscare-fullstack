@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  overflow-x: hidden  ;
+  position: relative;
+  color: white;
+}
+
+/* Floating Background Shapes */
+.background-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  animation: float 15s infinite linear;
+}
+
+.shape:nth-child(1) { width: 400px; height: 400px; top: -100px; left: -100px; animation-delay: 0s; }
+.shape:nth-child(2) { width: 300px; height: 300px; bottom: -50px; right: -50px; animation-delay: 5s; }
+.shape:nth-child(3) { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 10s; }
+
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(30px, -30px) rotate(180deg); }
+  100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Form Container */
+.form-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.header p {
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 16px 50px 16px 20px;
+  border: 2px solid rgba(0, 0, 0, 0.477);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  color: black;
+  font-size: 1.175rem;
+  transition: all 0.3s;
+}
+
+.input-group input::placeholder {
+  color: rgba(147, 146, 146, 0.892);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #6461fd;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.input-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.175rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.4s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255,107,107,0.4);
+}
+
+.error {
+  background: rgba(255,0,0,0.2);
+  color: #ffcccc;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Dashboard Styling */
+.dashboard {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  margin: 40px auto;
+}
+
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-layout .input-group{
+  width: 100%;
+}
+.dashboard-layout .submit-btn {
+  width: 40%;
+  padding: 16px;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.175rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: 0.4s;
+}
+
+.dashboard-card {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  color: #333;
+}
+
+.dashboard-card h2 {
+  font-size: 36px;
+  color: #667eea;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dashboard-card h3 {
+  color: #667eea;
+  font-size: 24px;
+  margin: 30px 0 20px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  margin-top: 20px; 
+}
+
+th {
+  background: #667eea;
+  color: white;
+  padding: 18px;
+  text-align: left;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+td {
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 12px;
+  color: #333;
+  font: size 1.175rem;
+}
+
+tr:hover td {
+  background: #e0e7ff;
+  transform: scale(1.02);
+}
+
+td button {
+  padding: 10px 20px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+td button:first-child { background: #10b981; color: white; margin-bottom: 10px;}
+td button:last-child { background: #ef4444; color: white; }
+
+.logout-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 40px;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.175rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .form-box, .dashboard-card { padding: 30px; }
+  table, thead, tbody, th, td, tr { display: block; }
+  thead { display: none; }
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 20px;
+    font-weight: bold;
+    color: #667eea;
+  }
+}
+
+/* Theme Toggle Styles (From PHP Example) */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.2);
+  padding: 10px 16px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.theme-switch {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  display: inline-block;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.2);
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.theme-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+input:checked + .theme-slider {
+  background: #48bb78;
+}
+
+input:checked + .theme-slider:before {
+  transform: translateX(24px);
+}
+
+.label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Dark Theme Overrides (High Contrast) */
+[data-theme="dark"] {
+  --bg-gradient: radial-gradient(circle at top left, #1e293b 0%, #020617 55%, #000 100%);
+  --form-bg: radial-gradient(circle at top left, #1e293b 0%, #020617 55%, #000 100%);
+  --input-bg: rgba(30, 41, 59, 0.8);
+  --text: #e2e8f0;
+  --dashboard-bg: rgba(25, 14, 90, 0.95);
+  --dashboard-text: #e2e8f0;
+  --table-bg: rgba(30, 58, 138, 0.4);
+  --table-hover: rgba(59, 130, 246, 0.3);
+  --submit-btn: linear-gradient(45deg, #ef4444, #f56565);
+}
+
+[data-theme="dark"] body {
+  background: #020617;
+}
+
+[data-theme="dark"] .form-box {
+  background: var(--form-bg);
+}
+
+[data-theme="dark"] .input-group input {
+  background: var(--input-bg);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.2);
+}
+
+[data-theme="dark"] .dashboard-card {
+  background: var(--dashboard-bg);
+  color: var(--dashboard-text);
+}
+
+[data-theme="dark"] td {
+  background: var(--table-bg);
+  color: var(--dashboard-text);
+}
+
+[data-theme="dark"] tr:hover td {
+  background: var(--table-hover);
+}
+
+[data-theme="dark"] .submit-btn {
+  background: var(--submit-btn);
+}
+
+
+[data-theme="dark"] .footer-text a {
+  color: #667eea;
+}
+
+.footer-text {
+  margin-top: 10px;
+}
+
+.footer-text a {
+  color: black;
+}
+
+.form-container p {
+  font-size: 1.125rem;
+}
